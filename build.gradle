@@ -37,6 +37,7 @@ application {
 
 ext {
     springVersion='5.3.3'
+    springSecurityVersion='5.3.3.RELEASE'
     hibernateVersion='5.4.10.Final'
 }
 
@@ -54,6 +55,8 @@ dependencies {
     implementation group: 'org.springframework', name: 'spring-jdbc', version: "${springVersion}"
     implementation group: 'org.springframework', name: 'spring-webmvc', version: "${springVersion}"
     implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.3.9.RELEASE'
+    implementation group: 'org.springframework.security', name: 'spring-security-web', version: "${springSecurityVersion}"
+    implementation group: 'org.springframework.security', name: 'spring-security-config', version: "${springSecurityVersion}"
 
 
     compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
