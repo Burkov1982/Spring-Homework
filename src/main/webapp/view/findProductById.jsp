@@ -19,7 +19,7 @@
                     <th align="left">Product name</th>
                     <th align="left">Product price</th>
                     <th align="left">Manufacturer name</th>
-                    <th colspan="1" align="center">Actions</th>
+                    <th colspan="2" align="center">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +30,11 @@
                     <td align="center">
                         <a href="/products/form/update?id=${product.id}">
                             <button>Update</button>
+                        </a>
+                    </td>
+                    <td align="center">
+                        <a href="/products/delete?id=${product.id}">
+                            <button>Delete</button>
                         </a>
                     </td>
                 </tr>

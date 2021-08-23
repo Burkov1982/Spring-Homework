@@ -6,7 +6,6 @@ import com.spring.dto.ManufacturerDTO;
 import com.spring.dto.ProductDTO;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -40,7 +39,7 @@ public class ManufacturerConverter {
     }
 
     private ProductDTO fromProduct(Product product) {
-        return new ProductDTO(product.getId(), product.getProduct_name(), product.getProduct_price(),
+        return new ProductDTO(product.getId(), product.getName(), product.getPrice(),
                 product.getManufacturer().getId());
     }
 }

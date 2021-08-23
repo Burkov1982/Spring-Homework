@@ -23,7 +23,7 @@ public class ProductConverter {
     }
 
     public ProductDTO fromProduct(Product product) {
-        return new ProductDTO(product.getId(), product.getProduct_name(), product.getProduct_price(),
+        return new ProductDTO(product.getId(), product.getName(), product.getPrice(),
                 product.getManufacturer().getId());
     }
 

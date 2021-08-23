@@ -29,4 +29,8 @@ public class ProductDTO {
         this.price = product_price;
         this.manufacturerId = manufacturerId;
     }
+
+    public ProductDTO() {
+
+    }
 }

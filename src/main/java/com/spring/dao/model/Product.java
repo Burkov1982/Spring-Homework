@@ -20,16 +20,16 @@ public class Product {
     @Getter
     @Setter
     @Column(name = "product_name")
-    private String product_name;
+    private String name;
 
     @Getter
     @Setter
     @Column(name = "product_price")
-    private BigDecimal product_price;
+    private BigDecimal price;
 
     @Getter
     @Setter
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "manufacturer_id", nullable = false)
     private Manufacturer manufacturer;
 
@@ -38,14 +38,14 @@ public class Product {
 
     public Product(UUID id, String product_name, BigDecimal product_price, Manufacturer manufacturer) {
         this.id = id;
-        this.product_name = product_name;
-        this.product_price = product_price;
+        this.name = product_name;
+        this.price = product_price;
         this.manufacturer = manufacturer;
     }
 
     public Product(UUID id, String product_name, BigDecimal product_price) {
         this.id = id;
-        this.product_name = product_name;
-        this.product_price = product_price;
+        this.name = product_name;
+        this.price = product_price;
     }
 }
