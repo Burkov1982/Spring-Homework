@@ -1,8 +1,5 @@
 package com.spring.dao.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
@@ -11,20 +8,15 @@ import java.util.UUID;
 @Entity
 @Table(name = "manufacturer")
 public class Manufacturer {
-    @Getter
-    @Setter
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "manufacturer_id")
     private UUID id;
 
-    @Getter
-    @Setter
     @Column(name = "manufacturer_name")
     private String name;
 
-    @Getter
-    @Setter
     @OneToMany(mappedBy = "manufacturer", fetch = FetchType.EAGER)
     private Set<Product> products;
 
@@ -40,8 +32,7 @@ public class Manufacturer {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Manufacturer)) return false;
-        Manufacturer that = (Manufacturer) o;
+        if (!(o instanceof Manufacturer that)) return false;
         return id.equals(that.id) && name.equals(that.name);
     }
 
@@ -57,5 +48,29 @@ public class Manufacturer {
                 ", manufacturer_name='" + name + '\'' +
                 ", products=" + products +
                 '}';
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 }

@@ -1,26 +1,15 @@
 package com.spring.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.util.UUID;
 
 public class ProductDTO {
-    @Getter
-    @Setter
     private UUID id;
 
-    @Getter
-    @Setter
     private String name;
 
-    @Getter
-    @Setter
     private BigDecimal price;
 
-    @Getter
-    @Setter
     private UUID manufacturerId;
 
     public ProductDTO(UUID id, String product_name, BigDecimal product_price, UUID manufacturerId) {
@@ -32,5 +21,37 @@ public class ProductDTO {
 
     public ProductDTO() {
 
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public UUID getManufacturerId() {
+        return manufacturerId;
+    }
+
+    public void setManufacturerId(UUID manufacturerId) {
+        this.manufacturerId = manufacturerId;
     }
 }

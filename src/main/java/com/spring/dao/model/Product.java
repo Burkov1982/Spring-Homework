@@ -1,8 +1,5 @@
 package com.spring.dao.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -10,25 +7,18 @@ import java.util.UUID;
 @Entity
 @Table(name = "product")
 public class Product {
-    @Getter
-    @Setter
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "product_id")
     private UUID id;
 
-    @Getter
-    @Setter
     @Column(name = "product_name")
     private String name;
 
-    @Getter
-    @Setter
     @Column(name = "product_price")
     private BigDecimal price;
 
-    @Getter
-    @Setter
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "manufacturer_id", nullable = false)
     private Manufacturer manufacturer;
@@ -47,5 +37,37 @@ public class Product {
         this.id = id;
         this.name = product_name;
         this.price = product_price;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public Manufacturer getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
     }
 }

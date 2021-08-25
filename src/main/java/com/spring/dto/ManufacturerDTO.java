@@ -1,22 +1,13 @@
 package com.spring.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Set;
 import java.util.UUID;
 
 public class ManufacturerDTO {
-    @Getter
-    @Setter
     private UUID id;
 
-    @Getter
-    @Setter
     private String name;
 
-    @Getter
-    @Setter
     Set<ProductDTO> products;
 
     public ManufacturerDTO() {
@@ -31,5 +22,29 @@ public class ManufacturerDTO {
     @Override
     public String toString() {
         return "Manufacturer UUID: "+id+"\n Manufacturer name: "+name;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<ProductDTO> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<ProductDTO> products) {
+        this.products = products;
     }
 }
