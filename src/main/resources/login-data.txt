@@ -1,6 +1,0 @@
-Admin account:
-    username: admin@gmail.com
-    password: adminadmin
-User account:
-    username: user@gmail.com
-    password: 12345
