@@ -1,4 +1,4 @@
-package com.spring.config.converters;
+package com.spring.configuration.converters;
 
 import com.spring.dao.model.Manufacturer;
 import com.spring.dao.model.Product;

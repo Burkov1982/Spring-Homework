@@ -1,11 +1,12 @@
 package com.spring.controller;
 
-import com.spring.config.converters.ProductConverter;
+import com.spring.configuration.converters.ProductConverter;
 import com.spring.dto.ManufacturerDTO;
 import com.spring.dto.ProductDTO;
 import com.spring.service.ManufacturerService;
 import com.spring.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -60,6 +61,7 @@ public class ProductController {
     }
 
     //Add, update, delete logic
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(path = "/delete")
     public RedirectView delete(@RequestParam("id") UUID uuid){
         ProductDTO product = service.findById(uuid);
@@ -67,6 +69,7 @@ public class ProductController {
         return new RedirectView("/products/findAllProducts");
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(path = "/form/add")
     public String showAddProductPage(Model model) {
         List<ManufacturerDTO> manufacturers = manufacturerService.getAll();
@@ -74,12 +77,14 @@ public class ProductController {
         return "addProductForm";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(path = "/addProduct")
     public RedirectView add(@ModelAttribute("product") ProductDTO product) {
         service.saveOrUpdate(product);
         return new RedirectView("/products/findAllProducts");
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(path = "/form/update")
     public String showUpdateProductPage(@RequestParam("id") UUID uuid, Model model) {
         ProductDTO productDTO = service.findById(uuid);
@@ -87,6 +92,7 @@ public class ProductController {
         return "updateProductForm";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(path = "/updateProduct")
     public RedirectView update(@ModelAttribute("product") ProductDTO productDTO) {
         service.saveOrUpdate(productDTO);

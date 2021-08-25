@@ -1,5 +1,5 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,14 +28,18 @@
                     <td>${product.price}</td>
                     <td>${manufacturer.name}</td>
                     <td align="center">
-                        <a href="/products/form/update?id=${product.id}">
-                            <button>Update</button>
-                        </a>
+                        <security:authorize access="hasRole('ROLE_ADMIN')">
+                            <a href="/products/form/update?id=${product.id}">
+                                <button>Update</button>
+                            </a>
+                        </security:authorize>
                     </td>
                     <td align="center">
-                        <a href="/products/delete?id=${product.id}">
-                            <button>Delete</button>
-                        </a>
+                        <security:authorize access="hasRole('ROLE_ADMIN')">
+                            <a href="/products/delete?id=${product.id}">
+                                <button>Delete</button>
+                            </a>
+                        </security:authorize>
                     </td>
                 </tr>
             </tbody>

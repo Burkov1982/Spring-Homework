@@ -12,40 +12,46 @@
 <c:import url="/view/navigation.jsp"/>
 <table cellpadding="5">
     <caption>
-        <h2> Manufacturer detail </h2>
+        <h2> List of Users </h2>
     </caption>
     <thead>
     <tr>
-        <th align="left">Manufacturer name</th>
-        <th align="left">Product name</th>
+        <th align="left">User ID</th>
+        <th align="left">User Firstname</th>
+        <th align="left">User Lastname</th>
+        <th align="left">User Email</th>
+        <th align="left">User Role</th>
+        <th align="left">User Status</th>
+        <th align="left">User Password</th>
         <th colspan="2" align="center">Actions</th>
     </tr>
     </thead>
     <tbody>
+    <c:forEach var="user" items="${users}">
         <tr>
-            <td>${manufacturer.name}</td>
-            <td>
-                <ul>
-                    <c:forEach var="product" items="${manufacturer.products}">
-                        <li>${product.name}</li>
-                    </c:forEach>
-                </ul>
+            <td>${user.id}</td>
+            <td>${user.firstName}</td>
+            <td>${user.lastName}</td>
+            <td>${user.email}</td>
+            <td>${user.userRole}</td>
+            <td>${user.userStatus}</td>
+            <td>${user.password}</td>
+            <td align="center">
+                <security:authorize access="hasRole('ROLE_ADMIN')">
+                    <a href="/user/findUserById?id=${user.id}">
+                        <button>Details</button>
+                    </a>
+                </security:authorize>
             </td>
             <td align="center">
                 <security:authorize access="hasRole('ROLE_ADMIN')">
-                    <a href="/manufacturers/form/update?id=${manufacturer.id}">
+                    <a href="/user/form/update?id=${user.id}">
                         <button>Update</button>
                     </a>
                 </security:authorize>
             </td>
-            <td align="center">
-                <security:authorize access="hasRole('ROLE_ADMIN')">
-                    <a href="/manufacturers/delete?id=${manufacturer.id}">
-                        <button>Delete</button>
-                    </a>
-                </security:authorize>
-            </td>
         </tr>
+    </c:forEach>
     </tbody>
 </table>
 </body>

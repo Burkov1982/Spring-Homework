@@ -1,5 +1,5 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,9 +32,11 @@
                             </a>
                         </td>
                         <td align="center">
-                            <a href="/products/form/update?id=${product.id}">
-                                <button>Update</button>
-                            </a>
+                            <security:authorize access="hasRole('ROLE_ADMIN')">
+                                <a href="/products/form/update?id=${product.id}">
+                                    <button>Update</button>
+                                </a>
+                            </security:authorize>
                         </td>
                     </tr>
                 </c:forEach>

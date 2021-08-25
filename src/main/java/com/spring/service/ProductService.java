@@ -1,6 +1,6 @@
 package com.spring.service;
 
-import com.spring.config.converters.ProductConverter;
+import com.spring.configuration.converters.ProductConverter;
 import com.spring.dao.ProductRepository;
 import com.spring.dao.model.Product;
 import com.spring.dto.ProductDTO;

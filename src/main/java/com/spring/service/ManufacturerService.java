@@ -1,6 +1,6 @@
 package com.spring.service;
 
-import com.spring.config.converters.ManufacturerConverter;
+import com.spring.configuration.converters.ManufacturerConverter;
 import com.spring.dao.ManufacturerRepository;
 import com.spring.dao.model.Manufacturer;
 import com.spring.dto.ManufacturerDTO;
