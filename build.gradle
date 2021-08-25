@@ -7,11 +7,15 @@ plugins {
 group 'com.spring'
 version '1.0'
 
-sourceCompatibility = '11'
-targetCompatibility = '11'
+sourceCompatibility = '16'
+targetCompatibility = '16'
 
 repositories {
     mavenCentral()
+}
+
+jar {
+    enabled = false
 }
 
 dependencies {
