@@ -44,7 +44,7 @@
             </td>
             <td align="center">
                 <security:authorize access="hasRole('ROLE_ADMIN')">
-                    <a href="/user/form/update?id=${manufacturer.id}">
+                    <a href="/user/form/update?id=${user.id}">
                         <button>Update</button>
                     </a>
                 </security:authorize>

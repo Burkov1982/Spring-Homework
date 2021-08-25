@@ -65,7 +65,7 @@ public class UserController {
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping(path = "findUserByEmail")
+    @GetMapping(path = "/findUserByEmail")
     public ModelAndView findUserByEmail(@RequestParam("email") String email, ModelAndView model) {
         User user = userService.findByEmail(email);
         model.addObject("user", user);
@@ -74,7 +74,7 @@ public class UserController {
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping(path = "findUserById")
+    @GetMapping(path = "/findUserById")
     public ModelAndView findUserById(@RequestParam("id") UUID uuid, ModelAndView model) {
         User user = userService.findById(uuid);
         model.addObject("user", user);

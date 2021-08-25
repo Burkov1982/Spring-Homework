@@ -10,12 +10,12 @@ CREATE TABLE users (
     user_status   VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE manufacturers (
+CREATE TABLE manufacturer (
     manufacturer_id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
     manufacturer_name            VARCHAR(250) NOT NULL
 );
 
-CREATE TABLE products (
+CREATE TABLE product (
     product_id      uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
     product_name            VARCHAR(250) NOT NULL,
     product_price           NUMERIC(10,2) NOT NULL,
