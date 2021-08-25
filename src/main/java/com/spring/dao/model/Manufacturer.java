@@ -32,8 +32,9 @@ public class Manufacturer {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Manufacturer that)) return false;
-        return id.equals(that.id) && name.equals(that.name);
+        if (!(o instanceof Manufacturer)) return false;
+        Manufacturer that = (Manufacturer) o;
+        return id.equals(that.id) && name.equals(that.name) && products.equals(that.products);
     }
 
     @Override
