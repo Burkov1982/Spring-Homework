@@ -46,6 +46,7 @@ public class UserService {
         if (!EmailValidator.getInstance().isValid(user.getEmail())) {
             throw new EmailNotValidException(String.format("Specified email %s not valid", user.getEmail()));
         }
+        user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
     }
 
