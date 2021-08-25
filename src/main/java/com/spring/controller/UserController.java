@@ -44,7 +44,7 @@ public class UserController {
             return "registration";
         }
 
-        return "login";
+        return "redirect:login";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
