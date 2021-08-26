@@ -79,8 +79,8 @@ public class ProductController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(path = "/addProduct")
-    public RedirectView add(@ModelAttribute("product") ProductDTO product) {
-        service.saveOrUpdate(product);
+    public RedirectView addProduct(@ModelAttribute("product") ProductDTO product) {
+        service.save(product);
         return new RedirectView("/products/findAllProducts");
     }
 
@@ -94,8 +94,8 @@ public class ProductController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(path = "/updateProduct")
-    public RedirectView update(@ModelAttribute("product") ProductDTO productDTO) {
-        service.saveOrUpdate(productDTO);
+    public RedirectView updateProduct(@ModelAttribute("product") ProductDTO productDTO) {
+        service.update(productDTO);
         return new RedirectView("/products/findAllProducts");
     }
 

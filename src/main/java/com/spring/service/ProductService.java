@@ -37,7 +37,13 @@ public class ProductService {
                 .orElseThrow(() -> new RuntimeException("Product not found"));
     }
 
-    public void saveOrUpdate (ProductDTO productDTO) {
+
+    public void save (ProductDTO productDTO) {
+        Product product = productConverter.toProduct(productDTO);
+        productRepository.save(product);
+    }
+
+    public void update (ProductDTO productDTO) {
         Product product = productConverter.toProduct(productDTO);
         productRepository.save(product);
     }

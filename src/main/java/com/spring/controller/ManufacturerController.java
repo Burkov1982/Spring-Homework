@@ -58,8 +58,8 @@ public class ManufacturerController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(path = "/updateManufacturer")
-    public RedirectView update(@ModelAttribute("manufacturer") Manufacturer manufacturer) {
-        service.saveOrUpdate(manufacturer);
+    public RedirectView updateManufacturer(@ModelAttribute("manufacturer") Manufacturer manufacturer) {
+        service.update(manufacturer);
         return new RedirectView("/manufacturers/findAllManufacturers");
     }
 
@@ -71,8 +71,8 @@ public class ManufacturerController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(path = "/addManufacturer")
-    public RedirectView add(@ModelAttribute("manufacturer") Manufacturer manufacturer) {
-        service.saveOrUpdate(manufacturer);
+    public RedirectView addManufacturer(@ModelAttribute("manufacturer") Manufacturer manufacturer) {
+        service.save(manufacturer);
         return new RedirectView("/manufacturers/findAllManufacturers");
     }
 

@@ -12,12 +12,12 @@ CREATE TABLE users (
 
 CREATE TABLE manufacturer (
     manufacturer_id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
-    manufacturer_name            VARCHAR(250) NOT NULL
+    manufacturer_name VARCHAR(250) NOT NULL UNIQUE
 );
 
 CREATE TABLE product (
     product_id      uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
-    product_name            VARCHAR(250) NOT NULL,
+    product_name            VARCHAR(250) NOT NULL UNIQUE,
     product_price           NUMERIC(10,2) NOT NULL,
     manufacturer_id uuid, FOREIGN KEY(manufacturer_id) REFERENCES manufacturers(manufacturer_id)
 );

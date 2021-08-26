@@ -41,7 +41,11 @@ public class ManufacturerService {
                 .orElseThrow(() -> new RuntimeException("Manufacturer not found"));
     }
 
-    public void saveOrUpdate(Manufacturer manufacturer) {
+    public void  save(Manufacturer manufacturer) {
+        manufacturerRepository.save(manufacturer);
+    }
+
+    public void update(Manufacturer manufacturer) {
         manufacturerRepository.save(manufacturer);
     }
 
